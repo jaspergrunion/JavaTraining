@@ -29,7 +29,7 @@ public class Main {
         System.out.println(Math.pow(myInt1, 3));
         System.out.println();
 
-        // Strings - not a primitive type and hence String and not string
+        // Strings - not a primitive type and hence String with a capital S
         String myString1 = "John Smith";
         String myString2 = "John Smyth";
 
@@ -39,6 +39,15 @@ public class Main {
 
         boolean subsEqual = myString1.substring(0,4).equals(myString2.substring(0,4));
         System.out.println(subsEqual);
+        System.out.println();
+
+        // Convert decimal to string
+        double gpa = 3.8;
+        String gpaString = Double.toString(gpa);
+
+        String compoundString = "GPA: " + gpa;
+//        String compoundString = "GPA: " + gpaString;
+        System.out.println(compoundString);
         System.out.println();
 
         // Arrays of primitives
