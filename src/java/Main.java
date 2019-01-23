@@ -55,8 +55,8 @@ public class Main {
         for (int i = 0; i < myArray1.length; i++) {
             arrayEqual[i] = (myArray1[i] == myArray2[i]);
         }
-        for (int i = 0; i < arrayEqual.length; i++) {
-            System.out.print(arrayEqual[i] + " ");
+        for (boolean element : arrayEqual) {
+            System.out.print(element + " ");
         }
         System.out.println();
 
