@@ -7,6 +7,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+        /*
+
         double[] myArray = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
         DescriptiveStatistics stats = new DescriptiveStatistics();
 
@@ -76,6 +78,7 @@ public class Main {
         System.out.println();
         FreqCounts.table(rolls);
 
+*/
         // Create array list of strings from csv file
         String fileref = "/Users/jlgunnin/IdeaProjects/JavaTraining/testin.csv";
         String[][] data = ReadCSV.toStringArray(fileref);
@@ -92,23 +95,18 @@ public class Main {
 
         ReadCSV.printRows(data, 10);
 
-        double[] gre = new double[data.length - 1];
-        for (int r = 1; r < data.length; r++) {
-            gre[r-1] = Double.parseDouble(data[r][2]);
+        List<Student> studentList = ReadCSV.toArrayList(fileref);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(studentList.get(i));
         }
         System.out.println();
 
-//        for (int i = 0; i < 10; i++) {
-//            System.out.println(gre[i]);
-//        }
+        System.out.println(studentList.get(0).getGender());
 
-        List<Student> studentList = ReadCSV.toArrayList(fileref);
-        System.out.println(studentList.get(0));
-
-//        System.out.println(studentList.get(0));
-//        for (int i = 0; i < 5; i++) {
-//            System.out.println(studentList.get(i));
-//        }
-
+        // Extract gre as an array
+        double[] gre = new double[studentList.size()];
+        for (int r = 0; r < studentList.size(); r++) {
+            gre[r] = studentList.get(r).getGre();
+        }
     }
 }

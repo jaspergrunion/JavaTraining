@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ReadCSV {
 
@@ -43,29 +42,23 @@ public class ReadCSV {
         ArrayList<Student> resultList = new ArrayList<Student>();
 
         String line = "";
-        int line_number = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(fileref))) {
+            br.readLine(); //skip first line
             while ((line = br.readLine()) != null) {
-                if (line_number == 0) {
-                    continue;
-                } else {
-                    String[] linelist = line.split(",");
-                    Student student = new Student();
-                    for (int l = 0; l < linelist.length; l++) {
-                        linelist[l] = linelist[l].replace("\"", "").trim();
-                    }
-                    student.id = Integer.parseInt(linelist[0]);
-                    student.admit = Integer.parseInt(linelist[1]);
-                    student.gre = Double.parseDouble(linelist[2]);
-                    student.gpa = Double.parseDouble(linelist[3]);
-                    student.rank = Integer.parseInt(linelist[4]);
-                    student.status = linelist[5];
-                    student.gender = linelist[6];
-                    student.date = linelist[7];
-//                    System.out.println(student.gre);
-                    resultList.add(student);
+                String[] linelist = line.split(",");
+                Student student = new Student();
+                for (int l = 0; l < linelist.length; l++) {
+                    linelist[l] = linelist[l].replace("\"", "").trim();
                 }
-                line_number++;
+                student.setId(Integer.parseInt(linelist[0]));
+                student.setAdmit(Integer.parseInt(linelist[1]));
+                student.setGre(Double.parseDouble(linelist[2]));
+                student.setGpa(Double.parseDouble(linelist[3]));
+                student.setRank(Integer.parseInt(linelist[4]));
+                student.setStatus(linelist[5]);
+                student.setGender(linelist[6]);
+                student.setDate(linelist[7]);
+                resultList.add(student);
             }
         } catch (IOException e) {
             e.printStackTrace();
