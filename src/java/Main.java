@@ -1,24 +1,31 @@
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
+        // Line comment
+        /*
+        Block comment
+         */
+
         // Primitive types
         int myInt1 = 25; // int is 32 bit so range is -2^32 to 2^32 - 1, for 64 bit integer use long instead of int
         int myInt2 = 12;
         int myInt3 = 2*myInt2 + 1;
-        boolean myBool = true; // false is other value
         double myDouble = 37.2; // 64 bit floating point, float type is 32 bit and not commonly used
+        boolean myBool = true; // false is other value
         // other primitive types: byte, short, char
 
         // Math and comparisons
-        System.out.println(myInt1/myInt2);
-        System.out.println(25/12.0);
-        System.out.println(myInt1 > myInt2);
-        System.out.println(myInt1 == myInt3);
+        System.out.println(myInt1/myInt2); // division with no remainder
+        System.out.println(25/12.0); // adding decimal to one argument casts to double
+        System.out.println(myInt1 > myInt2); // comparisons yield boolean values
+        System.out.println(myInt1 == myInt3); // Use == for numeric equality
         System.out.println(myDouble/2);
         System.out.println();
 
@@ -33,22 +40,27 @@ public class Main {
         String myString1 = "John Smith";
         String myString2 = "John Smyth";
 
-        boolean stringsEqual = myString1.equals(myString2);
+        boolean stringsEqual = myString1.equals(myString2); // == will compare memory locations not values
         System.out.println("Is '" + myString1 + "' equal to '" + myString2 + "'? - " + stringsEqual);
         System.out.println("JOHN".equalsIgnoreCase("john"));
 
         boolean subsEqual = myString1.substring(0,4).equals(myString2.substring(0,4));
         System.out.println(subsEqual);
-        System.out.println();
 
-        // Convert decimal to string
+        // String + is concatenation, even when mixing data types
         double gpa = 3.8;
-        String gpaString = Double.toString(gpa);
-
         String compoundString = "GPA: " + gpa;
-//        String compoundString = "GPA: " + gpaString;
         System.out.println(compoundString);
         System.out.println();
+
+        // Dates
+        Date currentDate = new Date();
+        System.out.println(currentDate);
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(fmt.format(currentDate));
+        System.out.println();
+
+/*
 
         // Arrays of primitives
         double[] myArray1 = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
@@ -68,6 +80,7 @@ public class Main {
             System.out.print(element + " ");
         }
         System.out.println();
+
 
         // String list
         String[] nameList= {"Larry", "Moe", "Curly"};
@@ -153,6 +166,7 @@ public class Main {
         }
         System.out.println();
         FreqCounts.table(rolls);
+/**/
 
     }
 }
