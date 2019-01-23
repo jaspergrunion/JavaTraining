@@ -1,5 +1,4 @@
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
-import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +6,101 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        /*
+        // Primitive types
+        int myInt1 = 25; // int is 32 bit so range is -2^32 to 2^32 - 1, for 64 bit integer use long instead of int
+        int myInt2 = 12;
+        int myInt3 = 2*myInt2 + 1;
+        boolean myBool = true; // false is other value
+        double myDouble = 37.2; // 64 bit floating point, float type is 32 bit and not commonly used
+        // other primitive types: byte, short, char
 
-        double[] myArray = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
+        // Math and comparisons
+        System.out.println(myInt1/myInt2);
+        System.out.println(25/12.0);
+        System.out.println(myInt1 > myInt2);
+        System.out.println(myInt1 == myInt3);
+        System.out.println(myDouble/2);
+        System.out.println();
+
+        // Popular constants and exponentiation
+        System.out.println(Math.PI);
+        System.out.println(Math.E);
+        System.out.println(Math.random()); // No seed - to generate random with seed use a generator
+        System.out.println(Math.pow(myInt1, 3));
+        System.out.println();
+
+        // Strings - not a primitive type and hence String and not string
+        String myString1 = "John Smith";
+        String myString2 = "John Smyth";
+
+        boolean stringsEqual = myString1.equals(myString2);
+        System.out.println("Is '" + myString1 + "' equal to '" + myString2 + "'? - " + stringsEqual);
+        System.out.println("JOHN".equalsIgnoreCase("john"));
+
+        boolean subsEqual = myString1.substring(0,4).equals(myString2.substring(0,4));
+        System.out.println(subsEqual);
+        System.out.println();
+
+        // Arrays of primitives
+        double[] myArray1 = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
+        double[] myArray2 = {2.4, 3.7, 7.4, 12.4, 17.9, 30.8};
+        double[] myArray3 = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
+
+        System.out.println(myArray1 == myArray2);
+        System.out.println(myArray1 == myArray3);
+        System.out.println(myArray1);
+        System.out.println(myArray3);
+
+        boolean[] arrayEqual = new boolean[myArray1.length];
+        for (int i = 0; i < myArray1.length; i++) {
+            arrayEqual[i] = (myArray1[i] == myArray2[i]);
+        }
+        for (int i = 0; i < arrayEqual.length; i++) {
+            System.out.print(arrayEqual[i] + " ");
+        }
+        System.out.println();
+
+        // String list
+        String[] nameList= {"Larry", "Moe", "Curly"};
+
+        for (String name : nameList ) {
+            System.out.println(name);
+        }
+        System.out.println();
+
+        // Array list - a Collection
+        List<String> starWarsList = new ArrayList<>();
+
+        starWarsList.add("Luke");
+        starWarsList.add("Leia");
+        starWarsList.add("Darth");
+        starWarsList.add("Rey");
+        System.out.println(starWarsList);
+
+        starWarsList.remove("Rey");
+        System.out.println(starWarsList);
+        starWarsList.add("Poe");
+        System.out.println(starWarsList);
+        starWarsList.remove(0);
+
+        for(String name : starWarsList){
+            System.out.println(name);
+        }
+        System.out.println();
+
+        // Create list of data objects from csv file
+        String fileref = "/Users/jlgunnin/IdeaProjects/JavaTraining/student_data.csv";
+
+        List<Student> studentList = ReadCSV.toList(fileref);
+        ReadCSV.printN(studentList, 10);
+//        ReadCSV.printN(studentList);
+
+        // External dependency example - use build.gradle and gradle.properties files to include
+        // Descriptive statistics from Apache commons math
         DescriptiveStatistics stats = new DescriptiveStatistics();
 
-        for (int i = 0; i < myArray.length; i++) {
-            stats.addValue(myArray[i]);
+        for (Student student: studentList) {
+            stats.addValue(student.getGre());
         }
 
         double n = stats.getN();
@@ -37,28 +124,8 @@ public class Main {
         System.out.println("std: " + std);
         System.out.println();
 
-        String[] nameList= {"Larry", "Moe", "Curly"};
-
-        for (String name : nameList ) {
-            System.out.println(name);
-        }
-        System.out.println();
-
-        List<String> anotherList = new ArrayList<>();
-
-        anotherList.add("Luke");
-        anotherList.add("Leia");
-        anotherList.add("Darth");
-        anotherList.add("Rey");
-
-        System.out.println(anotherList);
-        System.out.println();
-
-        for(String name : anotherList){
-            System.out.println(name);
-        }
-        System.out.println();
-
+        // Define interface instead of class - kind of like a function in other languages
+        // Rolling two dice and tabulating the distribution
         int num_sides = 6;
         int num_rolls = 1000;
         String[] rolls = new String[num_rolls];
@@ -78,35 +145,5 @@ public class Main {
         System.out.println();
         FreqCounts.table(rolls);
 
-*/
-        // Create array list of strings from csv file
-        String fileref = "/Users/jlgunnin/IdeaProjects/JavaTraining/testin.csv";
-        String[][] data = ReadCSV.toStringArray(fileref);
-
-//        for (int r = 0; r < data.length; r++) {
-        for (int r = 0; r < 11; r++) {
-            for (int c = 0; c < data[r].length; c++) {
-//                System.out.print(data[r][c] + " ");
-                System.out.print(String.format("%-20s", data[r][c]));
-            }
-            System.out.println();
-        }
-        System.out.println();
-
-        ReadCSV.printRows(data, 10);
-
-        List<Student> studentList = ReadCSV.toArrayList(fileref);
-        for (int i = 0; i < 10; i++) {
-            System.out.println(studentList.get(i));
-        }
-        System.out.println();
-
-        System.out.println(studentList.get(0).getGender());
-
-        // Extract gre as an array
-        double[] gre = new double[studentList.size()];
-        for (int r = 0; r < studentList.size(); r++) {
-            gre[r] = studentList.get(r).getGre();
-        }
     }
 }

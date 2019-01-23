@@ -24,6 +24,5 @@ public interface FreqCounts {
             }
             System.out.println();
         }
-        System.out.println();
     }
 }

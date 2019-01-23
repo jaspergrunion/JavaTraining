@@ -1,8 +1,6 @@
-import java.util.Date;
-
 public class Student {
 
-    // Declare object fields
+    // Declare fields as private
     private int id;
     private int admit;
     private double gre;
@@ -92,4 +90,5 @@ public class Student {
                 ", date='" + date + '\'' +
                 '}';
     }
+
 }
