@@ -4,7 +4,7 @@ Purpose: Sample project to learn the basics of Java
 Code
 - Main: Main program with examples
 - Student: Class that defines a student record
-- ReadCSV: Read from a csv file into a custom data object
+- ReadCSV: Read data from a csv file into a custom object
 - FreqCounts: Interface that generates a frequency table
 
 Files
