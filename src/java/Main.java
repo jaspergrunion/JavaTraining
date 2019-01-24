@@ -11,11 +11,6 @@ import java.util.Properties;
 public class Main {
     public static void main(String[] args) {
 
-        // Line comment
-        /*
-        Block comment
-         */
-
         // Primitive types
         int myInt1 = 25; // int is 32 bit so range is -2^32 to 2^32 - 1, for 64 bit integer use long instead of int
         int myInt2 = 12;
@@ -30,6 +25,9 @@ public class Main {
         System.out.println(myInt1 + " > " + myInt2 + "? " + (myInt1 > myInt2)); // comparisons yield boolean values
         System.out.println(myInt1 + " = " + myInt3 + "? " + (myInt1 == myInt3)); // Use == for numeric equality
         System.out.println(myDouble + "/2 = " + myDouble/2);
+        if (myBool){
+            System.out.println("Result was true");
+        }
         System.out.println();
 
         // Popular constants and exponentiation
@@ -49,6 +47,7 @@ public class Main {
 
         boolean subsEqual = myString1.substring(0,4).equals(myString2.substring(0,4));
         System.out.println("Substring compare: " + subsEqual);
+        System.out.println();
 
         // Dates
         Date currentDate = new Date();
@@ -57,9 +56,7 @@ public class Main {
         System.out.println("Formatted date: " + fmt.format(currentDate));
         System.out.println();
 
-///*
-
-        // Numeric array
+        // Numeric arrays
         double[] numArray1 = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
         double[] numArray2 = {2.4, 3.7, 7.4, 12.4, 17.9, 30.8};
 
@@ -82,7 +79,7 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        // String array
+        // String arrays
         String[] stooges= {"Larry", "Moe", "Curly"};
 
         for (String name : stooges ) {
@@ -116,11 +113,9 @@ public class Main {
 
         List<Student> studentList = ReadCSV.toList(fileref);
         ReadCSV.printN(studentList, 10);
-//        ReadCSV.printN(studentList);
+        // ReadCSV.printN(studentList); // This prints out the entire list of objects
 
-
-        // Define interface instead of class - kind of like a function in other languages
-        // Rolling two dice and tabulating the distribution
+        // Rolling two dice and tabulating the distribution with a map object
         int num_sides = 6;
         int num_rolls = 1000;
         String[] rolls = new String[num_rolls];
@@ -190,7 +185,6 @@ public class Main {
         System.out.println("Start Date: " + startDate);
         System.out.println("End Date: " + endDate);
         System.out.println("Number of Loops: " + numLoops);
-/**/
 
     }
 }

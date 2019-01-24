@@ -23,7 +23,7 @@ Overview
 - Arrays
 - Lists
 - Reading data from csv into a Java object
-- Defining an interface
+- Using a map to calculate a frequency table
 - Using an external library with build.gradle
 - Using a config.properties file to specify parameters
 
