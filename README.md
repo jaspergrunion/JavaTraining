@@ -16,6 +16,7 @@ Files
 - config.properties: File to hold parameters that control how the program is run
 
 Overview
+- Java from the command line
 - Quick tour of Intellij IDEA
 - Primitive data types
 - Operators and math
