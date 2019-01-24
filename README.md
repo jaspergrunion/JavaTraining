@@ -8,7 +8,7 @@ Code
 - FreqCounts: Interface that generates a frequency table
 
 Files
-- README.md: Markdown file that documents the repository
+- README.md: Markdown file that documents the repository (this file)
 - student_data.csv: Sample data to read in
 - build.gradle: Gradle file to include external libraries
 - gradle.properties: Points to USCIS's internal Maven repository
