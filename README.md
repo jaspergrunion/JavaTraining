@@ -8,11 +8,11 @@ Code
 - FreqCounts: Interface that generates a frequency table
 
 Files
-- README.md: Markdown file that documents the repository (this file)
+- README.md: Markdown file that documents the github repository (this file)
 - student_data.csv: Sample data to read in
 - build.gradle: Gradle file to include external libraries
 - gradle.properties: Points to USCIS's internal Maven repository
-- config.properties: Sample file that can hold parameters to control how the program is run
+- config.properties: File to hold parameters that control how the program is run
 
 Overview
 - Quick tour of Intellij IDEA
