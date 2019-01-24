@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ReadCSV {
 
-    public static List toList(String fileref){
+    public static List<Student> toList(String fileref){
         List<Student> resultList = new ArrayList<Student>();
 
         String line = "";

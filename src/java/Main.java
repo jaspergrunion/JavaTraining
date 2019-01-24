@@ -1,9 +1,12 @@
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,18 +25,18 @@ public class Main {
         // other primitive types: byte, short, char
 
         // Math and comparisons
-        System.out.println(myInt1/myInt2); // division with no remainder
-        System.out.println(25/12.0); // adding decimal to one argument casts to double
-        System.out.println(myInt1 > myInt2); // comparisons yield boolean values
-        System.out.println(myInt1 == myInt3); // Use == for numeric equality
-        System.out.println(myDouble/2);
+        System.out.println("Integer division: " + myInt1 + "/" + myInt2 + " = " + myInt1/myInt2); // division with no remainder
+        System.out.println("Decimal division: 25/12.0 = " + 25/12.0); // adding decimal to one argument casts to double
+        System.out.println(myInt1 + " > " + myInt2 + "? " + (myInt1 > myInt2)); // comparisons yield boolean values
+        System.out.println(myInt1 + " = " + myInt3 + "? " + (myInt1 == myInt3)); // Use == for numeric equality
+        System.out.println(myDouble + "/2 = " + myDouble/2);
         System.out.println();
 
         // Popular constants and exponentiation
-        System.out.println(Math.PI);
-        System.out.println(Math.E);
-        System.out.println(Math.random()); // No seed - to generate random with seed use a generator
-        System.out.println(Math.pow(myInt1, 3));
+        System.out.println("PI: " + Math.PI);
+        System.out.println("E: " + Math.E);
+        System.out.println("Random: " + Math.random()); // No seed - to generate random with seed use a generator
+        System.out.println("Exponent: " + myInt1 + "^3 = " + Math.pow(myInt1, 3));
         System.out.println();
 
         // Strings - not a primitive type and hence String with a capital S
@@ -41,56 +44,53 @@ public class Main {
         String myString2 = "John Smyth";
 
         boolean stringsEqual = myString1.equals(myString2); // == will compare memory locations not values
-        System.out.println("Is '" + myString1 + "' equal to '" + myString2 + "'? - " + stringsEqual);
-        System.out.println("JOHN".equalsIgnoreCase("john"));
+        System.out.println("Is '" + myString1 + "' equal to '" + myString2 + "'? " + stringsEqual);
+        System.out.println("Case insensitive: 'JOHN' equal to 'john'? " + "JOHN".equalsIgnoreCase("john"));
 
         boolean subsEqual = myString1.substring(0,4).equals(myString2.substring(0,4));
-        System.out.println(subsEqual);
-
-        // String + is concatenation, even when mixing data types
-        double gpa = 3.8;
-        String compoundString = "GPA: " + gpa;
-        System.out.println(compoundString);
-        System.out.println();
+        System.out.println("Substring compare: " + subsEqual);
 
         // Dates
         Date currentDate = new Date();
-        System.out.println(currentDate);
+        System.out.println("Current date: " + currentDate);
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(fmt.format(currentDate));
+        System.out.println("Formatted date: " + fmt.format(currentDate));
         System.out.println();
 
-/*
+///*
 
-        // Arrays of primitives
-        double[] myArray1 = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
-        double[] myArray2 = {2.4, 3.7, 7.4, 12.4, 17.9, 30.8};
-        double[] myArray3 = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
+        // Numeric array
+        double[] numArray1 = {1.2, 3.5, 7.4, 9.2, 17.9, 22.8};
+        double[] numArray2 = {2.4, 3.7, 7.4, 12.4, 17.9, 30.8};
 
-        System.out.println(myArray1 == myArray2);
-        System.out.println(myArray1 == myArray3);
-        System.out.println(myArray1);
-        System.out.println(myArray3);
+        System.out.println("Length of numArray1: " + numArray1.length);
+        System.out.println("numArray1: " + numArray1);
+        System.out.println("numArray2: " + numArray2);
 
-        boolean[] arrayEqual = new boolean[myArray1.length];
-        for (int i = 0; i < myArray1.length; i++) {
-            arrayEqual[i] = (myArray1[i] == myArray2[i]);
+        for (int i = 0; i < numArray1.length; i++) {
+            System.out.print(numArray1[i] + " ");
+        }
+        System.out.println();
+
+        boolean[] arrayEqual = new boolean[numArray1.length];
+        for (int i = 0; i < numArray1.length; i++) {
+            arrayEqual[i] = (numArray1[i] == numArray2[i]);
         }
         for (boolean element : arrayEqual) {
             System.out.print(element + " ");
         }
         System.out.println();
+        System.out.println();
 
+        // String array
+        String[] stooges= {"Larry", "Moe", "Curly"};
 
-        // String list
-        String[] nameList= {"Larry", "Moe", "Curly"};
-
-        for (String name : nameList ) {
+        for (String name : stooges ) {
             System.out.println(name);
         }
         System.out.println();
 
-        // Array list - a Collection
+        // Array list - similar to list in other languages
         List<String> starWarsList = new ArrayList<>();
 
         starWarsList.add("Luke");
@@ -99,11 +99,12 @@ public class Main {
         starWarsList.add("Rey");
         System.out.println(starWarsList);
 
-        starWarsList.remove("Rey");
+        starWarsList.remove("Darth");
         System.out.println(starWarsList);
         starWarsList.add("Poe");
         System.out.println(starWarsList);
         starWarsList.remove(0);
+        System.out.println(starWarsList);
 
         for(String name : starWarsList){
             System.out.println(name);
@@ -116,6 +117,28 @@ public class Main {
         List<Student> studentList = ReadCSV.toList(fileref);
         ReadCSV.printN(studentList, 10);
 //        ReadCSV.printN(studentList);
+
+
+        // Define interface instead of class - kind of like a function in other languages
+        // Rolling two dice and tabulating the distribution
+        int num_sides = 6;
+        int num_rolls = 1000;
+        String[] rolls = new String[num_rolls];
+        for (int i = 0; i < num_rolls; i++) {
+
+            int dice1 = 1 + (int) (Math.random()*num_sides);
+            int dice2 = 1 + (int) (Math.random()*num_sides);
+            int total = dice1 + dice2;
+            String totalStr;
+            if (total < 10){
+                totalStr = "0" + Integer.toString(total);
+            } else {
+                totalStr = Integer.toString(total);
+            }
+            rolls[i] = totalStr;
+        }
+        System.out.println();
+        FreqCounts.table(rolls);
 
         // External dependency example - use build.gradle and gradle.properties files to include
         // Descriptive statistics from Apache commons math
@@ -146,26 +169,27 @@ public class Main {
         System.out.println("std: " + std);
         System.out.println();
 
-        // Define interface instead of class - kind of like a function in other languages
-        // Rolling two dice and tabulating the distribution
-        int num_sides = 6;
-        int num_rolls = 1000;
-        String[] rolls = new String[num_rolls];
-        for (int i = 0; i < num_rolls; i++) {
-
-            int dice1 = 1 + (int) (Math.random()*num_sides);
-            int dice2 = 1 + (int) (Math.random()*num_sides);
-            int total = dice1 + dice2;
-            String totalStr;
-            if (total < 10){
-                totalStr = "0" + Integer.toString(total);
-            } else {
-                totalStr = Integer.toString(total);
-            }
-            rolls[i] = totalStr;
+        // Using a properties file
+        Properties prop = new Properties();
+        try {
+            prop.load(new FileInputStream("config.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        System.out.println();
-        FreqCounts.table(rolls);
+        String username = prop.getProperty("username");
+        String password = prop.getProperty("password");
+        String url = prop.getProperty("url");
+        String startDate = prop.getProperty("start_date");
+        String endDate = prop.getProperty("end_date");
+        int numLoops = Integer.parseInt(prop.getProperty("num_loops"));
+
+        System.out.println("Properties File:");
+        System.out.println("Username: " + username);
+        System.out.println("Password: " + password);
+        System.out.println("URL: " + url);
+        System.out.println("Start Date: " + startDate);
+        System.out.println("End Date: " + endDate);
+        System.out.println("Number of Loops: " + numLoops);
 /**/
 
     }
