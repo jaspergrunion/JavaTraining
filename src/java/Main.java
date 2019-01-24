@@ -11,6 +11,15 @@ import java.util.Properties;
 public class Main {
     public static void main(String[] args) {
 
+        // Line comment
+        /*
+        Block comment
+         */
+
+        // Printing
+        System.out.println("Hello World");
+        System.out.println();
+
         // Primitive types
         int myInt1 = 25; // int is 32 bit so range is -2^32 to 2^32 - 1, for 64 bit integer use long instead of int
         int myInt2 = 12;
