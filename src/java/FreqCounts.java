@@ -2,7 +2,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class FreqCounts {
-    public static void table(String[] inputArray){
+    public static void dist(String[] inputArray){
         TreeMap<String, Integer> elementCountMap = new TreeMap<>();
         for (String i : inputArray)
         {

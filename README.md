@@ -6,6 +6,7 @@ Code
 - Student: Class that defines a student record
 - ReadCSV: Read data from a csv file into a custom object
 - FreqCounts: Interface that generates a frequency table
+- AddNums: Class to show the use of command line arguments
 
 Files
 - README.md: Markdown file that documents the github repository (this file)

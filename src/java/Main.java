@@ -11,11 +11,6 @@ import java.util.Properties;
 public class Main {
     public static void main(String[] args) {
 
-        // Line comment
-        /*
-        Block comment
-         */
-
         // Printing
         System.out.println("Hello World");
         System.out.println();
@@ -142,7 +137,7 @@ public class Main {
             rolls[i] = totalStr;
         }
         System.out.println();
-        FreqCounts.table(rolls);
+        FreqCounts.dist(rolls);
 
         // External dependency example - use build.gradle and gradle.properties files to include
         // Descriptive statistics from Apache commons math
