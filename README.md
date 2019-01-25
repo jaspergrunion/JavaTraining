@@ -3,10 +3,9 @@ Purpose: Sample project to learn the basics of Java
 
 Code
 - Main: Main program with examples
-- Student: Class that defines a student record
-- ReadCSV: Read data from a csv file into a custom object
-- FreqCounts: Interface that generates a frequency table
-- AddNums: Class to show the use of command line arguments
+- Student: Define a student record
+- ReadCSV: Read data from csv into a custom object
+- FreqCounts: Generates a frequency table
 
 Files
 - README.md: Markdown file that documents the github repository (this file)
@@ -16,8 +15,9 @@ Files
 - config.properties: File to hold parameters that control how the program is run
 
 Overview
-- Java from the command line
 - Quick tour of Intellij IDEA
+- Hello World
+- Command line arguments
 - Primitive data types
 - Operators and math
 - Strings
