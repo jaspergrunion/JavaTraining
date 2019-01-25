@@ -3,6 +3,7 @@ Purpose: Sample project to learn the basics of Java
 
 Code
 - Main: Main program with examples
+- TryIt: Class to experiment with java commands
 - Student: Define a student record
 - ReadCSV: Read data from csv into a custom object
 - FreqCounts: Generates a frequency table
