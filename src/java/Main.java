@@ -37,7 +37,7 @@ public class Main {
         System.out.println("Exponent: " + myInt1 + "^3 = " + Math.pow(myInt1, 3));
         System.out.println();
 
-        /*
+//        /*
         // Strings - not a primitive type and hence String with a capital S
         String myString1 = "John Smith";
         String myString2 = "John Smyth";
