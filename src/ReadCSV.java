@@ -15,9 +15,6 @@ public class ReadCSV {
             while ((line = reader.readLine()) != null) {
                 String[] linelist = line.split(",");
                 Student student = new Student();
-                for (int l = 0; l < linelist.length; l++) {
-                    linelist[l] = linelist[l].replace("\"", "").trim();
-                }
                 student.setId(Integer.parseInt(linelist[0]));
                 student.setAdmit(Integer.parseInt(linelist[1]));
                 student.setGre(Double.parseDouble(linelist[2]));

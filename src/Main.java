@@ -37,7 +37,6 @@ public class Main {
         System.out.println("Exponent: " + myInt1 + "^3 = " + Math.pow(myInt1, 3));
         System.out.println();
 
-//        /*
         // Strings - not a primitive type and hence String with a capital S
         String myString1 = "John Smith";
         String myString2 = "John Smyth";
@@ -110,7 +109,7 @@ public class Main {
         System.out.println();
 
         // Create list of data objects from csv file
-        String fileref = "/Users/jlgunnin/IdeaProjects/JavaTraining/student_data.csv";
+        String fileref = "student_data.csv";
 
         List<Student> studentList = ReadCSV.toList(fileref);
         ReadCSV.printN(studentList, 10);
@@ -133,7 +132,14 @@ public class Main {
             }
             rolls[i] = totalStr;
         }
+
+        System.out.println("First 50 dice rolls:");
+        for (int i = 0; i < 50 ; i++) {
+            System.out.print(rolls[i] + " ");
+        }
         System.out.println();
+        System.out.println();
+
         FreqCounts.dist(rolls);
 
         // External dependency example - use build.gradle and gradle.properties files to include
@@ -186,6 +192,7 @@ public class Main {
         System.out.println("Start Date: " + startDate);
         System.out.println("End Date: " + endDate);
         System.out.println("Number of Loops: " + numLoops);
+
 //        */
 
     }
